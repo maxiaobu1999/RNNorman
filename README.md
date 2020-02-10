@@ -7,7 +7,8 @@ https://go.kieran.top/post/32/
 ## 打印日志
       console.debug('+++++++++++++++1');
 
-
+## 添加依赖
+yarn add moment        
 App.js
 ```
 /**

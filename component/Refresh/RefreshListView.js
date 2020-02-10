@@ -5,12 +5,12 @@ import RefreshState from './RefreshState';
 import RefreshFooter from './RefreshFooter';
 
 export default class RefreshListView extends Component {
-  
+  // PropTypes:类型检查
   static propTypes = {
     onHeaderRefresh: PropTypes.func, // 下拉刷新的方法
     onFooterRefresh: PropTypes.func, // 上拉加载的方法
   };
-  
+
   constructor(props) {
     super(props);
     this.state = {
@@ -19,7 +19,7 @@ export default class RefreshListView extends Component {
       footerState: RefreshState.Idle, // 尾部当前的状态，默认为Idle，不显示控件
     }
   }
-  
+
   render() {
     return (
       <FlatList
@@ -32,7 +32,7 @@ export default class RefreshListView extends Component {
       />
     )
   }
-  
+
   _renderFooter = () => {
     return (
       <RefreshFooter
@@ -43,12 +43,12 @@ export default class RefreshListView extends Component {
       />
     )
   };
-  
+
   /// 尾部组件的状态，供外部调用，一般不会用到
   footerState() {
     return this.state.footerState;
   }
-  
+
   /// 开始下拉刷新
   beginHeaderRefresh() {
     if (this.shouldStartHeaderRefreshing()) {
@@ -61,7 +61,7 @@ export default class RefreshListView extends Component {
       this.startHeaderRefreshing();
     }
   }
-  
+
   /// 开始上拉加载更多
   beginFooterRefresh() {
     if (this.shouldStartFooterRefreshing()) {
@@ -74,7 +74,7 @@ export default class RefreshListView extends Component {
       this.startFooterRefreshing();
     }
   }
-  
+
   /// 下拉刷新，设置完刷新状态后再调用刷新方法，使页面上可以显示出加载中的UI，注意这里setState写法
   startHeaderRefreshing() {
     this.setState(
@@ -86,7 +86,7 @@ export default class RefreshListView extends Component {
       }
     );
   }
-  
+
   /// 上拉加载更多，将底部刷新状态改为正在刷新，然后调用刷新方法，页面上可以显示出加载中的UI，注意这里setState写法
   startFooterRefreshing() {
     this.setState(
@@ -99,7 +99,7 @@ export default class RefreshListView extends Component {
       }
     );
   }
-  
+
   /***
    * 当前是否可以进行下拉刷新
    * @returns {boolean}
@@ -115,7 +115,7 @@ export default class RefreshListView extends Component {
     }
     return true;
   }
-  
+
   /***
    * 当前是否可以进行上拉加载更多
    * @returns {boolean}
@@ -135,7 +135,7 @@ export default class RefreshListView extends Component {
     }
     return true;
   }
-  
+
   /**
    * 根据尾部组件状态来停止刷新
    * @param footerState

@@ -1,8 +1,10 @@
 import React, {Component} from 'react';
+
 import {
   FlatList,
   StyleSheet,
   Text,
+  TouchableHighlight,
   View,
   Image,
   Platform, // 判断当前运行的系统
@@ -12,7 +14,9 @@ export default class TextCell extends Component {
   render() {
     let {movie} = this.props;
     return (
-      <Text style={styles.item}>{movie.title}</Text>
+        <TouchableHighlight>
+          <Text style={styles.item}>{movie.title}</Text>
+        </TouchableHighlight>
     );
   }
 }
@@ -20,6 +24,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingTop: 22,
+    backgroundColor:'#ffffff'
   },
   item: {
     padding: 10,
