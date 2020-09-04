@@ -4,7 +4,7 @@ import {
     StyleSheet,
     Text,
     View,
-    Image,
+    NativeModules,
     Platform, // 判断当前运行的系统
     Navigator,
 } from 'react-native';
@@ -14,6 +14,8 @@ import RightPicCell from './cell/RightPicCell.js';
 import ThreePicCell from './cell/ThreePicCell.js';
 import RefreshListView from './Refresh/RefreshListView.js';
 import RefreshState from './Refresh/RefreshState';
+
+var nativeModule = NativeModules.OpenNativeModule;
 
 // Component是一切界面组件的根类,实现界面组件必须要像继承此类
 class NewsListPage extends Component {
@@ -63,7 +65,8 @@ class NewsListPage extends Component {
                 <TextCell
                     movie={item.item}
                     onPress={() => {
-                        console.debug('点击了电影----' + item.item.title);
+                        let json = this._entityToJson(item.item);
+                        nativeModule.openNativeVC(json);
                     }}
                 />
             );
@@ -74,7 +77,8 @@ class NewsListPage extends Component {
                 <CenterPicCell
                     movie={item.item}
                     onPress={() => {
-                        console.debug('点击了电影----' + item.item.title);
+                        let json = this._entityToJson(item.item);
+                        nativeModule.openNativeVC(json);
                     }}
                 />
             );
@@ -85,7 +89,8 @@ class NewsListPage extends Component {
                 <RightPicCell
                     movie={item.item}
                     onPress={() => {
-                        console.debug('点击了电影----' + item.item.title);
+                        let json = this._entityToJson(item.item);
+                        nativeModule.openNativeVC(json);
                     }}
                 />
             );
@@ -95,7 +100,8 @@ class NewsListPage extends Component {
             <ThreePicCell
                 movie={item.item}
                 onPress={() => {
-                    console.debug('点击了电影----' + item.item.title);
+                    console.debug('点击了电影----' + item.item.title); let json = this._entityToJson(item.item);
+                    nativeModule.openNativeVC(json);
                 }}
             />
         );
@@ -108,7 +114,7 @@ class NewsListPage extends Component {
     /** 获取数据 */
     _initData() {
         let that = this;
-        fetch('http://111.229.116.167:8088/news/queryByNum?num=10')
+        fetch('http://111.229.116.167:8088/news/queryByNum?num=10&channelId=0')
             .then(response => response.json())
             .then(responseJson => {
                 for (let idx in responseJson.data) {
@@ -152,6 +158,15 @@ class NewsListPage extends Component {
             })
             .done();
     }
+
+    _entityToJson(obj) {
+        // 对象转换为json
+        let string = JSON.stringify(obj);
+
+
+        return string;
+    }
+
 }
 
 const styles = StyleSheet.create({

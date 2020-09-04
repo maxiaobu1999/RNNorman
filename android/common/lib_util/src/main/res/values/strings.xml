@@ -1,0 +1,5 @@
+<resources>
+    <string name="exit_tips">"再按一次退出App"</string>
+    <string name="activity_not_found">未找到应用程序</string>
+
+</resources>

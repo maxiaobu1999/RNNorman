@@ -1,3 +1,7 @@
+include ':common:lib_videoplayer'
+include ':common:lib_videocache'
+include ':common:lib_util'
+include ':common:lib_runtime'
 rootProject.name = 'RNNorman'
 apply from: file("../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesSettingsGradle(settings)
 include ':app'

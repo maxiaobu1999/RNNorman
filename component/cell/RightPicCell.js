@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         // 决定其子元素沿着次轴的排列方式
         alignItems: 'center',
-        backgroundColor: '#F5FCFF',
+        backgroundColor: '#ffffff',
         padding: 10,
         borderBottomWidth: 1,
         borderColor: '#e0e0e0',
@@ -65,6 +65,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
     },
     title: {
+        backgroundColor: '#ffffff',
         fontSize: 14,
         fontWeight: 'bold',
         color: '#333333',

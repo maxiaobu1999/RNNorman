@@ -19,7 +19,7 @@ export default class CenterPicCell extends Component {
             <TouchableHighlight onPress={this.props.onPress}>
                 <View style={styles.container}>
                     <Text numberOfLines={2} style={styles.title}>{movie.title}</Text>
-                    {/*中间三张图*/}
+                    {/*中间一张图*/}
                     <View style={styles.middleContainer}>
                         <Image
                             source={{uri: 'https://maqinglong-1253423006.cos.ap-beijing-1.myqcloud.com/' + movie.imageUrlList[0]}}
@@ -80,6 +80,7 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-start',
     },
     title: {
+        backgroundColor: '#ffffff',
         fontSize: 14,
         fontWeight: 'bold',
         color: '#333333',

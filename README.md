@@ -1,6 +1,13 @@
  # react-native 项目说明
+ ## 运行
+ > 终端输入
+>
  yarn react-native run-android
+ > 真机调试
+>
  Change Bundle Location: 192.168.1.4:8081
+## 打包
+react-native bundle --entry-file index.js --bundle-output ./android/app/src/main/assets/index.android.bundle --platform android --assets-dest ./android/app/src/main/res --dev false
 
 ## WebStorm支持ES6
 https://go.kieran.top/post/32/
@@ -8,8 +15,10 @@ https://go.kieran.top/post/32/
       console.debug('+++++++++++++++1');
 
 ## 添加依赖
-yarn add moment        
-App.js
+yarn add moment      
+
+  
+原始App.js
 ```
 /**
  * Sample React Native App

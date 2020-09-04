@@ -93,6 +93,7 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-start',
     },
     title: {
+        backgroundColor: '#ffffff',
         fontSize: 14,
         fontWeight: 'bold',
         color: '#333333',
