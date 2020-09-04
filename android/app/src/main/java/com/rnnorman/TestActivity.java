@@ -5,14 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Toast;
 
-public class TestActivity extends AppCompatActivity {
+import com.facebook.react.ReactActivity;
+
+public class TestActivity extends ReactActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_test);
-        Bundle bundle = getIntent().getBundleExtra("bundle");
-        String json = bundle.getString("data");
-        Toast.makeText(this,json,Toast.LENGTH_LONG).show();
+    protected String getMainComponentName() {
+        return "mini";
     }
 }
